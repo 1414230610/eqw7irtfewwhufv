@@ -1,222 +1,121 @@
-# Openit Quantumult Configuration
-# 欢迎使用Openit系列 Quanx.conf 配置文件
-# 引用神机, blackmatrix7、lhie1等的重写规则, KOP-XIAO的geo-checker js脚本, ip-api数据库, Mazeorz整合的网易云音乐解锁, GeQ1an部分去广告规则
-# https://openit.ml / Telegram@yusteven
-# GitHub → yu-steven / yu@openit.ml
-# 更新时间: 2022.4.20-00:00
-
-[general]
-excluded_routes=192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8
-network_check_url=http://cp.cloudflare.com/generate_204
-server_check_url=http://www.qualcomm.cn/generate_204
-resource_parser_url=https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/resource-parser.js
-profile_img_url=https://cdn.jsdelivr.net/gh/yu-steven/openit@main/images/logo.ico
-dns_exclusion_list = *.cmpassport.com, *.jegotrip.com.cn, *.icitymobile.mobi, id6.me, *.pingan.com.cn, *.cmbchina.com, *.localnetwork.uop, mfs.ykimg.com*.ttf, *.icbc.com.cn
-geo_location_checker=http://api.live.bilibili.com/ip_service/v1/ip_service/get_ip_addr? , https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/IP_bili_cn.js
-
-[dns]
-no-ipv6
-server=119.29.29.29
-server=223.5.5.5
-server=1.2.4.8
-server=/*.taobao.com/223.5.5.5
-server=/*.tmall.com/223.5.5.5
-server=/*.alipay.com/223.5.5.5
-server=/*.alicdn.com/223.5.5.5
-server=/*.aliyun.com/223.5.5.5
-server=/*.jd.com/119.28.28.28
-server=/*.qq.com/119.28.28.28
-server=/*.tencent.com/119.28.28.28
-server=/*.weixin.com/119.28.28.28
-server=/*.bilibili.com/119.29.29.29
-server=/hdslb.com/119.29.29.29
-server=/*.163.com/119.29.29.29
-server=/*.126.com/119.29.29.29
-server=/*.126.net/119.29.29.29
-server=/*.127.net/119.29.29.29
-server=/*.netease.com/119.29.29.29
-server=/*.mi.com/119.29.29.29
-server=/*.xiaomi.com/119.29.29.29
-address=/mtalk.google.com/108.177.125.188
-
-[policy]
-# 其中 Apple Update 为屏蔽iOS系统更新的策略组，默认保持直连，如有需要屏蔽，请在策略组面板自行切换至REJECT； 
-# 国内流媒体 分流为中国媒体（包括A站、B站、爱奇艺等）；国外流媒体 为国际媒体（包括HULU、HBO等）；  
-# Mainland 为访问大部分大陆网站时的分流策略；Outside 指定访问境外网站时的分流；
-# Others 为其他规则，若前边的规则都没有被匹配到，则听从此策略组的规定。
-# 策略想走特定节点或套娃，请长按分流策略组自行添加节点/策略组
-# 自动测速策略组只包含常用地区HK,JP,SG,KR,US,TW, 其他地区和游戏节点建议在Proxy选择然后改变分流策略
-url-latency-benchmark=延迟最低, server-tag-regex=^((?!(music|𝐌𝐮𝐬𝐢𝐜|Unbolck|网易云|云音乐|Music|Netease|🎶|专线|手游|游戏|(?i)IPLC|IEPL|BGP|CN2|game)).)*$, check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
-url-latency-benchmark=🇭🇰Hong Kong, server-tag-regex=(?=.*(香港|HK|(?i)Hong))^((?!(专线|手游|游戏|(?i)IPLC|IEPL|BGP|CN2|game)).)*$, check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
-url-latency-benchmark=🇹🇼Taiwan, server-tag-regex=(?=.*(台湾|台灣|TW|(?i)Taiwan))^((?!(专线|手游|游戏|(?i)IPLC|IEPL|BGP|CN2|game)).)*$, check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
-url-latency-benchmark=🇯🇵Japan, server-tag-regex=(?=.*(日本|JP|(?i)Japan))^((?!(专线|手游|游戏|(?i)IPLC|IEPL|BGP|CN2|game)).)*$, check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
-url-latency-benchmark=🇰🇷Korea, server-tag-regex=(?=.*(韩国|韓國|南朝鲜|KR|(?i)Korean))^((?!(专线|手游|游戏|(?i)IPLC|IEPL|BGP|CN2|game)).)*$, check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
-url-latency-benchmark=🇸🇬Singapore, server-tag-regex=(?=.*(新加坡|狮城|SG|(?i)Singapore))^((?!(专线|手游|游戏|(?i)IPLC|IEPL|BGP|CN2|game)).)*$, check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
-url-latency-benchmark=🇺🇸United States, server-tag-regex=(?=.*(美国|美國|US|(?i)States|American))^((?!(专线|手游|游戏|网易云|云音乐|🎶(?i)IPLC|IEPL|BGP|CN2|game|music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Music|Netease)).)*$, check-interval=1800, tolerance=0, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
-url-latency-benchmark=专线, server-tag-regex=(手游|游戏|专线|(?i)IPLC|IEPL|BGP|CN2|game), check-interval=1800, tolerance=10, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Server.png
-static=大陆网站, direct, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Domestic.png
-static=境外网站, 延迟最低, proxy, direct, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
-static=国内流媒体, direct, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png
-static=国外流媒体, 延迟最低, proxy, direct, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
-static=Google, 延迟最低, proxy, direct, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
-static=YouTube, 延迟最低, direct, 🇭🇰Hong Kong, 🇯🇵Japan, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
-static=Telegram, 延迟最低, direct, proxy, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
-static=Instagram, 延迟最低, proxy, direct, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Instagram.png
-static=Spotify, 延迟最低, direct, proxy, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png
-static=Netflix, 延迟最低, direct, proxy, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix_Letter.png
-static=Twitch, 延迟最低, direct, proxy, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitch.png
-static=Pornhub, 延迟最低, direct, proxy, 🇭🇰Hong Kong, 🇹🇼Taiwan, 🇯🇵Japan, 🇰🇷Korea, 🇸🇬Singapore, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pornhub_1.png
-static=TikTok, direct, proxy, 🇺🇸United States, 🇯🇵Japan, 🇹🇼Taiwan, 🇰🇷Korea, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok_1.png
-static=网抑云, direct, proxy, server-tag-regex=(?=.*(music|𝐌𝐮𝐬𝐢𝐜|Unbolck|网易云|云音乐|Music|Netease|🎶|解锁)), img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netease_Music.png
-static=Steam, 🇭🇰Hong Kong, direct, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
-static=数字货币, 延迟最低, proxy, direct, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency_3.png
-static=PayPal, direct, proxy, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/PayPal.png
-static=广告拦截, direct, reject, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png
-static=漏网之鱼, direct, 延迟最低, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
-static=Apple, direct, proxy, 🇺🇸United States, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
-static=Apple Update, direct, reject, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_Update.png
-static=Microsoft, direct, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
-static=Speedtest, direct, proxy, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Speedtest.png
-
-[server_local]
-# 本地服务器部分, 自行添加即可
-http = h3816tw.droplet.today:20443, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇹🇼 HTTPS｜台湾
-http = h961359.droplet.today:11245, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇺🇸 HTTPS｜美国01
-http = h961684.droplet.today:11245, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇺🇸 HTTPS｜美国02
-http = h961684.droplet.today:11745, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇩🇪 HTTPS｜德国01
-http = h961359.droplet.today:11745, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇩🇪 HTTPS｜德国02
-http = h961359.droplet.today:11445, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇯🇵 HTTPS｜日本01
-http = h961684.droplet.today:11445, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇯🇵 HTTPS｜日本02
-http = h890361.droplet.today:11445, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇯🇵 HTTPS｜日本03
-http = jc.ap.fastqvpn.com:29980, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇯🇵 HTTPS｜一键连｜日本
-http = 183.240.9.28:29980, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港01
-http = 183.240.9.29:29980, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港02
-http = 183.240.9.30:29980, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港03
-http = 183.240.9.31:29980, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港04
-http = 120.232.251.206:29980, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港05
-http = h890361.droplet.today:11545, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港06
-http = h961359.droplet.today:11545, username=dcf12c7e7d, password=26bae9b023, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜香港07
-http = pccw.stunnel.vip:4700, username=yaojiayu246@gmail.com, password=73a4ff1c-85c8-11ea-82ef-f23c9164ca5d, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇭🇰 HTTPS｜PCCW｜香港
-http = 183.240.9.28:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡01
-http = 183.240.9.28:29982, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡02
-http = 183.240.9.28:29983, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡03
-http = 183.240.9.28:29984, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡04
-http = 183.240.9.28:29987, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡05
-http = 183.240.9.28:29988, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡06
-http = 183.240.9.29:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡07
-http = 183.240.9.29:29982, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡08
-http = 183.240.9.29:29983, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡09
-http = 183.240.9.29:29984, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡10
-http = 183.240.9.29:29987, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡11
-http = 183.240.9.29:29988, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡12
-http = 183.240.9.30:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡13
-http = 183.240.9.30:29982, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡14
-http = 183.240.9.30:29983, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡15
-http = 183.240.9.30:29984, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡16
-http = 183.240.9.30:29987, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡17
-http = 183.240.9.30:29988, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡18
-http = 183.240.9.31:29983, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡19
-http = 183.240.9.31:29984, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡20
-http = 183.240.9.31:29987, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡21
-http = 183.240.9.31:29988, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡22
-http = 183.240.9.29:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡23
-http = 183.240.9.30:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡24
-http = 183.240.9.31:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡25
-http = 183.240.9.31:29982, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡26
-http = 183.240.9.31:29985, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡27
-http = 120.232.251.206:29979, username=442993652168396800, password=2ef91648-089f-4c81-b34d-06f072ec51dd, over-tls=true, tls-verification=false, fast-open=false, udp-relay=false, tag=🇸🇬 HTTPS｜新加坡28
-
-[server_remote]
-# 节点远程订阅
-https://openit.ml/long#, tag=Openit, update-interval=172800, opt-parser=true, enabled=true
-
-[filter_remote]
-# 远程分流规则策略组
-https://cdn.jsdelivr.net/gh/loongfzs/Clash-Config@main/Clash/Ruleset/Uni/LAN.list, tag=局域网, force-policy=DIRECT, update-interval=432005, opt-parser=true, enabled=true
-https://cdn.jsdelivr.net/gh/loongfzs/Clash-Config@main/Clash/Ruleset/Uni/NTP.list, tag=时间同步, force-policy=DIRECT, update-interval=432010, opt-parser=true, enabled=true
-https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/PublicDirectCDN.list, tag=公用CDN, force-policy=DIRECT, update-interval=432015, opt-parser=true, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Apple/Apple.list, tag=Apple (Apple服务), force-policy=Apple, update-interval=86400, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/yawenchim/QuantumultX-mix@master/rule/Cryptocurrency.list, tag=Cryptocurrency（数字货币）, force-policy=数字货币, update-interval=86405, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/NetEaseMusic/NetEaseMusic.list, tag=NetEaseMusic (解锁网易云灰色音乐), force-policy=网抑云, update-interval=86410, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Advertising/Advertising.list, tag=AdBlock (广告拦截), force-policy=广告拦截, update-interval=86415, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Instagram/Instagram.list, tag=Instagram, force-policy=Instagram, update-interval=86420, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/TikTok/TikTok.list, tag=TikTok, force-policy=TikTok, update-interval=86425, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/StreamingMedia/Video/Pornhub.list, tag=Pornhub, force-policy=Pornhub, update-interval=86430, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/StreamingMedia/Video/YouTube.list, tag=YouTube（油管）, force-policy=YouTube, update-interval=86435, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Netflix/Netflix.list, tag=Netflix（奈非）, force-policy=Netflix, update-interval=86440, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Spotify/Spotify.list, tag=Spotify（声田音乐）, force-policy=Spotify, update-interval=86445, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/StreamingMedia/StreamingCN.list, tag=CNMedia (大陆流媒体), force-policy=国内流媒体, update-interval=86450, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/StreamingMedia/Streaming.list, tag=GBMedia (境外流媒体), force-policy=国外流媒体, update-interval=86455, opt-parser=true, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Steam/Steam.list, tag=Steam, force-policy=Steam, update-interval=86460, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/PayPal/PayPal.list, tag=PayPal（贝宝）, force-policy=PayPal, update-interval=86465, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/Extra/Telegram/Telegram.list, tag=Telegram（电报）, force-policy=Telegram, update-interval=86470, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Microsoft/Microsoft.list, tag=Microsoft（微软平台）, force-policy=Microsoft, update-interval=86475, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Speedtest/Speedtest.list, tag=Speedtest（测速平台）, force-policy=Speedtest, update-interval=86480, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/QuantumultX/Google/Google.list, tag=Google (全家桶), force-policy=Google, update-interval=86485, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/Global.list, tag=Outside (境外网站), force-policy=境外网站, update-interval=86490, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Filter/China.list, tag=Mainland (大陆网站), force-policy=大陆网站, update-interval=86495, opt-parser=false, enabled=true
-
-[filter_local]
-# 本地分流规则(相同规则下，本地规则将覆盖远程规则，优先生效)
-# 绕过企业证书过期
-host, ocsp.apple.com, reject
-
-# 屏蔽系统更新
-host, ns.itunes.apple.com, Apple Update
-host, appldnld.apple.com, Apple Update
-host, mesu.apple.com, Apple Update
-host, xp.apple.com, Apple Update
-host, gdmf.apple.com, Apple Update
-
-# 避免迅雷版权问题
-host, hub5idx.v6.shub.sandai.net, reject
-host, hub5emu.v6.shub.sandai.net, reject
-host, hub5btmain.v6.shub.sandai.net, reject
-
-# 银行
-HOST-SUFFIX,95599.cn,direct
-HOST-SUFFIX,abchina.com,direct
-HOST-SUFFIX,bscabank.com,direct
-HOST-SUFFIX,openaboc.cn,direct
-HOST-SUFFIX,openaboc.com,direct
-HOST-SUFFIX,openaboc.com.cn,direct
-
-# 其他
-host-suffix, local, direct
-host-keyword, yattazen, proxy
-host, jdsharedresourcescdn.azureedge.net, proxy
-ip-cidr, 10.0.0.0/8, direct
-ip-cidr, 17.0.0.0/8, direct
-ip-cidr, 100.64.0.0/10, direct
-ip-cidr, 127.0.0.0/8, direct
-ip-cidr, 172.16.0.0/12, direct
-ip-cidr, 192.168.0.0/16, direct
-geoip, cn, direct
-final, 漏网之鱼
-
-[rewrite_remote]
-https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Quantumult/Rewrite/General.conf, tag=神机Google重定向, update-interval=86515, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rewrite/QuantumultX/AllInOne/AllInOne.conf, tag=blackmatrix7去广告规则, update-interval=86500, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/chavyleung/scripts@master/box/rewrite/boxjs.rewrite.quanx.conf, tag=boxjs, update-interval=86510, opt-parser=false, enabled=true
-https://cdn.jsdelivr.net/gh/Orz-3/QuantumultX@master/YouTube.conf, tag=YouTube去广告, update-interval=86505, opt-parser=false, enabled=false
-https://cdn.jsdelivr.net/gh/id77/QuantumultX@master/rewrite/Youtube_CC.conf, tag=YouTube 翻译字幕, update-interval=172800, opt-parser=false, enabled=false
-https://raw.githubusercontent.com/yawenchim/QuantumultX-mix/master/unlock/TikTok_JP.sgmodule, tag=解锁Tiktok(地址中JP可替换成TW,US,UK,KR), update-interval=86520, opt-parser=true, enabled=false
-https://service.2ti.st/QuanX/Script/jd_tb_price/main.js, tag=淘宝京东比价, update-interval=86525, opt-parser=false, enabled=false
-
-[rewrite_local]
-# 本地复写规则
-
-[task_local]
-# 构造请求，脚本区，自行找库添加。
-event-interaction https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/geo_location.js, tag=GeoIP 查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png, enabled=true
-event-interaction https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/ytb-ui-check.js, tag=YouTube 查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png, enabled=true
-event-interaction https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/nf-ui-check.js, tag=Netflix 查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Netflix.png, enabled=true
-event-interaction https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/streaming-ui-check.js, tag=流媒体-解锁查询, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png, enabled=true
-event-interaction https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/switch-check-google.js, tag=Google 切换, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png, enabled=true
-
-[http_backend]
-https://raw.githubusercontent.com/chavyleung/scripts/master/chavy.box.js, tag=BoxJS, path=^/, enabled=true
-
-[mitm]
-# passphrase和p12代为证书&主机名部分, 更新配置前可把旧的配置中passphrase和p12代码拷贝下来, 导入新的配置文件把内容粘贴在对应位置就不用重装证书了
-hostname= rdcseason.m.jd.com, *.googlevideo.com, trade-acs.m.taobao.com,as.xiaojukeji.com, as.xiaojukeji.com, wq.jd.com, api.m.jd.com, *.google.cn
+ss://YWVzLTI1Ni1jZmI6eTlWVVJ5TnpKV05SWUVHUQ@103.172.116.94:9008#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_1
+ss://YWVzLTI1Ni1jZmI6VTZxbllSaGZ5RG1uOHNnbg@103.172.116.94:9041#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_2
+ss://YWVzLTI1Ni1jZmI6SFNadXlKUWNXZThkeE5kRg@103.172.116.94:9043#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_3
+ss://YWVzLTI1Ni1jZmI6ZE1MMnNmaGJWd3Z0Zk5QZQ@103.172.116.94:9058#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_4
+ss://YWVzLTI1Ni1jZmI6YUxwUXRmRVplNDQ1UXlIaw@103.172.116.94:9098#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_5
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV82IiwNCiAgImFkZCI6ICIxMDQuMTcuMzAuMTExIiwNCiAgInBvcnQiOiAiODA4MCIsDQogICJpZCI6ICJkNzIyMjdjOC0zY2UxLTRmMjQtYTlmYi0zNmZjZDkxOGY5NmYiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogImFzYW4zLmF6YWQyLnRlY2giLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV83IiwNCiAgImFkZCI6ICIxMDQuMTguMTUuMTQ3IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiMzUxYjkzMWMtMTZiNS00MGVmLTg4NDYtMjY5YzNhNDNjNWMxIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJ1czMuODg5NjExLmNvbSIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV84IiwNCiAgImFkZCI6ICIxMDQuMTguMTUuMTQ4IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiMzUxYjkzMWMtMTZiNS00MGVmLTg4NDYtMjY5YzNhNDNjNWMxIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJlcjMuODg5NjExLmNvbSIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV85IiwNCiAgImFkZCI6ICIxMDQuMTguMTUuMTQ5IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiMzUxYjkzMWMtMTZiNS00MGVmLTg4NDYtMjY5YzNhNDNjNWMxIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJlcjMuODg5NjExLmNvbSIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8xMCIsDQogICJhZGQiOiAiMTA0LjE4LjE1LjE1MCIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiZXIzLjg4OTYxMS5jb20iLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8xMSIsDQogICJhZGQiOiAiMTA0LjE4LjE1NC40MiIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAidXMzLjg4OTYxMS5jb20iLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8xMiIsDQogICJhZGQiOiAiMTA0LjI2LjEyLjU0IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiN2NlMDY5NjctOGNhZi00ZmNjLWI5NmEtMjZhMGNiNzMzNmU1IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJ1czIucXVpY2stY29ubmVjdC5idXp6IiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+trojan://4fc77152e665415b9986d5b9b8f43601@118.142.31.198:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_13
+trojan://4114d6d4c84e428fade9981b7a029abb@118.142.55.54:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_14
+ss://YWVzLTEyOC1nY206MmZkOTNiZGMtZDk4Ny00Y2MzLTg5MTctYjc1MmNlNjVjY2Jm@125.124.203.30:10004#%f0%9f%87%a8%f0%9f%87%b3_%e4%b8%ad%e5%9b%bd_%40yudievilla_15
+ss://YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA@125.141.31.69:54345#%f0%9f%87%b0%f0%9f%87%b7_%e9%9f%a9%e5%9b%bd_%40yudievilla_16
+ss://YWVzLTI1Ni1jZmI6YW1hem9uc2tyMDU@13.212.206.130:443#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_17
+ss://YWVzLTI1Ni1jZmI6YW1hem9uc2tyMDU@13.231.210.254:443#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_18
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@138.186.142.4:989#%f0%9f%87%b5%f0%9f%87%a6_%e5%b7%b4%e6%8b%bf%e9%a9%ac_%40yudievilla_19
+trojan://4fc77152e665415b9986d5b9b8f43601@139.84.144.10:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%ae%f0%9f%87%b3_%e5%8d%b0%e5%ba%a6_%40yudievilla_20
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yMSIsDQogICJhZGQiOiAiMTYyLjE1OS4xMzQuMTk4IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiN2NlMDY5NjctOGNhZi00ZmNjLWI5NmEtMjZhMGNiNzMzNmU1IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJ1czIucXVpY2stY29ubmVjdC5idXp6IiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yMiIsDQogICJhZGQiOiAiMTYyLjE1OS4yMDAuMyIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiY2EzLjg4OTYxMS5jb20iLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yMyIsDQogICJhZGQiOiAiMTYyLjE1OS4yMDAuNCIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiY2EzLjg4OTYxMS5jb20iLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yNCIsDQogICJhZGQiOiAiMTYyLjE1OS4yMDAuNSIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiaGszLjg4OTYxMS5jb20iLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yNSIsDQogICJhZGQiOiAiMTYyLjE1OS4yMDAuNiIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiZXIzLjg4OTYxMS5jb20iLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yNiIsDQogICJhZGQiOiAiMTYyLjE1OS4yMDAuNyIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjM1MWI5MzFjLTE2YjUtNDBlZi04ODQ2LTI2OWMzYTQzYzVjMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAidWszLnZpc2FhcHAudG9wIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+ss://YWVzLTI1Ni1nY206ZmFCQW9ENTRrODdVSkc3@167.88.62.104:2376#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_27
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8yOCIsDQogICJhZGQiOiAiMTcyLjY3LjE4Ni4zIiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiMmZkOTNiZGMtZDk4Ny00Y2MzLTg5MTctYjc1MmNlNjVjY2JmIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJ1cy5jZG4wMS50b3AiLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+trojan://312d6c9a-a39b-4581-9c04-b27be91e47a2@173.255.240.201:443?allowInsecure=1&sni=13-231-155-134.nhost.00cdn.com#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_29
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7Pwn4exX+iNt+WFsF9AeXVkaWV2aWxsYV8zMCIsDQogICJhZGQiOiAiMTc4LjYyLjI0MC4yMTgiLA0KICAicG9ydCI6ICIyOTA0NiIsDQogICJpZCI6ICI1Yjg2OGExMy0zMWYwLTQ0NTAtYzg4MS1kYjRhODgxMjYxMjIiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogInRjcCIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+trojan://e4818e8930644822aa7d15cc805e3fd7@183.179.168.53:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_31
+trojan://8d1e94cd-23cf-4267-b630-c6894e6e1b4d@tw01.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_32
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh6nwn4eqX+W+t+WbvV9AeXVkaWV2aWxsYV8zMyIsDQogICJhZGQiOiAiMTg1LjIwNi42OS40MyIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogIjQwNDYxNzFmLTIxNzYtNGY1Ni04MDA4LWFkYzU1Njc2OTMxYSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+ss://YWVzLTEyOC1jZmI6c2hhZG93c29ja3M@212.102.47.198:443#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_34
+trojan://2dba06438ba04834875e0b77b7edbbea@220.246.88.144:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_35
+ss://YWVzLTI1Ni1jZmI6YW1hem9uc2tyMDU@34.222.2.189:443#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_36
+ss://YWVzLTEyOC1nY206MmZkOTNiZGMtZDk4Ny00Y2MzLTg5MTctYjc1MmNlNjVjY2Jm@36.140.115.220:10001#%f0%9f%87%a8%f0%9f%87%b3_%e4%b8%ad%e5%9b%bd_%40yudievilla_37
+trojan://e4818e8930644822aa7d15cc805e3fd7@38.180.105.115:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_38
+trojan://3b31223a-960a-4166-b37f-edf0a23b884b@4.193.50.59:443?allowInsecure=1&sni=in.liangyuandiancloud.com#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_39
+ss://YWVzLTI1Ni1jZmI6YW1hem9uc2tyMDU@43.201.100.232:443#%f0%9f%87%b0%f0%9f%87%b7_%e9%9f%a9%e5%9b%bd_%40yudievilla_40
+ss://YWVzLTI1Ni1jZmI6YW1hem9uc2tyMDU@43.201.64.47:443#%f0%9f%87%b0%f0%9f%87%b7_%e9%9f%a9%e5%9b%bd_%40yudievilla_41
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@5.188.6.8:989#%f0%9f%87%ba%f0%9f%87%a6_%e4%b9%8c%e5%85%8b%e5%85%b0_%40yudievilla_42
+trojan://36fe28a331638747@5.44.249.42:3306?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_43
+trojan://c75da6ec-2151-4191-bcde-1778a5c12cf7@frontend.yijianlian.app:54000?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_44
+trojan://b09d2aaa443af97a@5.44.249.43:3306?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_45
+trojan://7b06d22a8a7c764f@5.44.249.53:3306?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_46
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@51.159.111.208:989#%f0%9f%87%ab%f0%9f%87%b7_%e6%b3%95%e5%9b%bd_%40yudievilla_47
+trojan://telegram-id-privatevpns@51.21.38.86:22222?allowInsecure=1&sni=trojan.miwan.co.uk#%f0%9f%87%ab%f0%9f%87%b7_%e6%b3%95%e5%9b%bd_%40yudievilla_48
+ss://YWVzLTI1Ni1jZmI6YW1hem9uc2tyMDU@54.201.23.39:443#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_49
+trojan://4fc77152e665415b9986d5b9b8f43601@65.20.102.54:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%aa%f0%9f%87%b8_%e8%a5%bf%e7%8f%ad%e7%89%99_%40yudievilla_50
+trojan://2dba06438ba04834875e0b77b7edbbea@70.34.210.81:443?allowInsecure=1&sni=www.gpt123.one#%f0%9f%87%b8%f0%9f%87%aa_%e7%91%9e%e5%85%b8_%40yudievilla_51
+ss://YWVzLTI1Ni1jZmI6cnBnYk5uVTlyRERVNGFXWg@80.92.204.106:9094#%f0%9f%87%a9%f0%9f%87%aa_%e5%be%b7%e5%9b%bd_%40yudievilla_52
+trojan://44c47535-2d1b-4afa-8c56-6bf39f7b03ad@hk01.trojanyyds.xyz:443?allowInsecure=1&sni=hk01.trojanyyds.xyz#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_53
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@92.38.171.89:989#%f0%9f%87%aa%f0%9f%87%b8_%e8%a5%bf%e7%8f%ad%e7%89%99_%40yudievilla_54
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV81NSIsDQogICJhZGQiOiAiOTQuMTMxLjguMzIiLA0KICAicG9ydCI6ICIyMDk1IiwNCiAgImlkIjogIjU3ZTM3YTc0LWJhZGMtNGI3MS04N2M3LTViOWUyMDg3OWI1OCIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiL3ZtZXNzIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV81NiIsDQogICJhZGQiOiAiOTQuMTMxLjguMzIiLA0KICAicG9ydCI6ICI4MCIsDQogICJpZCI6ICI1N2UzN2E3NC1iYWRjLTRiNzEtODdjNy01YjllMjA4NzliNTgiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi92bWVzcyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+trojan://45a99be4-8cb4-4df2-b7a4-42f1a8dea5c1@aujs.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_57
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV81OCIsDQogICJhZGQiOiAiY2ZjZG4xLnl1emhvdWNsb3VkMDAzLnh5eiIsDQogICJwb3J0IjogIjIwNTIiLA0KICAiaWQiOiAiNGVmZjM3OTItNjA3OC00YWQxLWFhMzEtNzc3MjgzMGM3OGFjIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJodXpmeHFkZ3VzMS56dmhkZWFvZi54eXoiLA0KICAicGF0aCI6ICIvdmlkZW8vTHBQUDhRTkMiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV81OSIsDQogICJhZGQiOiAiY2ZjZG4yLnNhbmZlbmNkbjkuY29tIiwNCiAgInBvcnQiOiAiMjA1MiIsDQogICJpZCI6ICJjZDJlMGJjNy1iMjVkLTRhOTktYjhkNi1hODA1NzBkYjk5NGEiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogInl2aG5iZXZ4aGsxLnlvZm5oa2ZjLnh5eiIsDQogICJwYXRoIjogIi92aWRlby8zNGtLWGJMTSIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV82MCIsDQogICJhZGQiOiAiY2ZjZG4yLnl1emhvdWNsb3VkMDAzLnh5eiIsDQogICJwb3J0IjogIjIwNTIiLA0KICAiaWQiOiAiNGVmZjM3OTItNjA3OC00YWQxLWFhMzEtNzc3MjgzMGM3OGFjIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJkd2x3ZnlrcmpwMS56dmhkZWFvZi54eXoiLA0KICAicGF0aCI6ICIvdmlkZW8vTmdlVmJpYjMiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV82MSIsDQogICJhZGQiOiAiY2ZjZG4zLnNhbmZlbmNkbjkuY29tIiwNCiAgInBvcnQiOiAiMjA1MiIsDQogICJpZCI6ICJjZDJlMGJjNy1iMjVkLTRhOTktYjhkNi1hODA1NzBkYjk5NGEiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogInd0eXd3Y3J6anA1LnlvZm5oa2ZjLnh5eiIsDQogICJwYXRoIjogIi92aWRlby85VGZWRXlrdSIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV82MiIsDQogICJhZGQiOiAiY2ZjZG4zLnNhbmZlbmNkbjkuY29tIiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiZGFiODY1NzktZDE5Ny00MzFiLThlNzItM2Q4YTc1OTY4MDQwIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJvQTVGU3o5VGpwMS55b2ZuaGtmYy54eXoiLA0KICAicGF0aCI6ICIvdmlkZW8vUDdFRXhvRTIiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+trojan://4f2f34cc-d2e9-4ca8-a687-68efe5ad5959@dejs.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_63
+trojan://4f2f34cc-d2e9-4ca8-a687-68efe5ad5959@esjs.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_64
+trojan://9737c85e-ad5c-48f5-93f6-9bdb0361d04c@frontend.kuangbiaoyun.com:40003?allowInsecure=1#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_65
+trojan://ad953998-e8ea-4d5b-8b2f-e63edd9d375d@frontend.kuangbiaoyun.com:40005?allowInsecure=1#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_66
+trojan://ad953998-e8ea-4d5b-8b2f-e63edd9d375d@frontend.kuangbiaoyun.com:40019?allowInsecure=1&sni=frontend.kuangbiaoyun.com#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_67
+trojan://c75da6ec-2151-4191-bcde-1778a5c12cf7@frontend.yijianlian.app:54420?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_68
+trojan://ae3d8af4-4e4f-47a8-a4d7-fda41150d71a@frontend.yijianlian.app:54530?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_69
+trojan://c75da6ec-2151-4191-bcde-1778a5c12cf7@frontend.yijianlian.app:54540?allowInsecure=1#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_70
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV83MSIsDQogICJhZGQiOiAiZ2xhc2NvLmZ4LXRyYWRlci5zaG9wIiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiZjI1NmEzYWUtMGY4NS00YTFkLWQwY2QtMmQwYjRiNzNmNGYxIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJ2M3JhM2RvLndha2V1cHRpbWVyYXAuc2hvcCIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV83MiIsDQogICJhZGQiOiAiaGFtcmFoYXZhbC5hc2FuM2Euc2hvcCIsDQogICJwb3J0IjogIjgwODAiLA0KICAiaWQiOiAiZDcyMjI3YzgtM2NlMS00ZjI0LWE5ZmItMzZmY2Q5MThmOTZmIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJhc2FuMy5hemFkMi50ZWNoIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@hk02.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_73
+trojan://44c47535-2d1b-4afa-8c56-6bf39f7b03ad@hk03.trojanyyds.xyz:443?allowInsecure=1&sni=hk03.trojanyyds.xyz#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_74
+trojan://44c47535-2d1b-4afa-8c56-6bf39f7b03ad@hk04.trojanyyds.xyz:443?allowInsecure=1&sni=hk04.trojanyyds.xyz#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_75
+trojan://45a99be4-8cb4-4df2-b7a4-42f1a8dea5c1@in.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_76
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@in01.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_77
+trojan://96f625d7-f202-46b0-b679-34f8289c6945@jp.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_78
+trojan://4f2f34cc-d2e9-4ca8-a687-68efe5ad5959@lu.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_79
+trojan://61d2b2f6-d6ce-4724-9a5d-cc1123a1c949@my.mjt001.com:443?allowInsecure=1&sni=my.mjt001.com#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_80
+trojan://ee20db28-0e13-4936-96b1-37bfa5244854@my01.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_81
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@my02.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_82
+trojan://45a99be4-8cb4-4df2-b7a4-42f1a8dea5c1@nljs.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_83
+trojan://fMucnQTndf@no.08.ijg.cc:443?allowInsecure=1#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_84
+ss://YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA@p236.panda004.net:58023#%f0%9f%87%b0%f0%9f%87%b7_%e9%9f%a9%e5%9b%bd_%40yudievilla_85
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@series-a1.samanehha.co:443#%f0%9f%87%ac%f0%9f%87%a7_%e8%8b%b1%e5%9b%bd_%40yudievilla_86
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp1MTdUM0J2cFlhYWl1VzJj@series-a2-mec.samanehha.co:443#%f0%9f%87%ac%f0%9f%87%a7_%e8%8b%b1%e5%9b%bd_%40yudievilla_87
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTptcHMzRndtRGpMcldhT1Zn@series-a2.samanehha.co:443#%f0%9f%87%ac%f0%9f%87%a7_%e8%8b%b1%e5%9b%bd_%40yudievilla_88
+trojan://96f625d7-f202-46b0-b679-34f8289c6945@sg.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_89
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@sk01.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_90
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@tw02.trojanyyds.xyz:443?allowInsecure=1#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_91
+trojan://7e23957d-535a-4dc6-9482-e6f44518da87@us1.lvwf8n-hh8e-2300-nmoo-d2e9naobeacn.9d8f269f96b25232-759cbb36d6548597.kaufen:443?allowInsecure=1&sni=13-231-155-134.nhost.00cdn.com#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_92
+trojan://45a99be4-8cb4-4df2-b7a4-42f1a8dea5c1@usa.liangyuandiancloud.com:443?allowInsecure=1#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_93
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7vwn4ezX+i2iuWNl19AeXVkaWV2aWxsYV85NCIsDQogICJhZGQiOiAidm4ueHByby41Z2RhdGF2aXAuZGljaHZ1dG9wMS5wcm8udm4iLA0KICAicG9ydCI6ICI4MCIsDQogICJpZCI6ICJlMjBjNTAxYS1jY2MwLTQ3Y2MtYjM4YS05MTY4NGY4NDJkZDEiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi81Z2RhdGF2aXBEVlRvcDEiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+trojan://c2c76420-257f-492a-b20f-6560f3bfa78d@waphk.mjt000.com:443?allowInsecure=1&sni=waphk.mjt000.com#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_95
+trojan://c75da6ec-2151-4191-bcde-1778a5c12cf7@168.138.73.206:54000?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_96
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV85NyIsDQogICJhZGQiOiAiMTA0LjE2LjIwMy44MyIsDQogICJwb3J0IjogIjIwNTIiLA0KICAiaWQiOiAiNGVmZjM3OTItNjA3OC00YWQxLWFhMzEtNzc3MjgzMGM3OGFjIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJodXpmeHFkZ3VzMS56dmhkZWFvZi54eXoiLA0KICAicGF0aCI6ICIvdmlkZW8vTHBQUDhRTkMiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV85OCIsDQogICJhZGQiOiAiMTA0LjE4LjExNS4yMjAiLA0KICAicG9ydCI6ICIyMDUyIiwNCiAgImlkIjogImNkMmUwYmM3LWIyNWQtNGE5OS1iOGQ2LWE4MDU3MGRiOTk0YSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAieXZobmJldnhoazEueW9mbmhrZmMueHl6IiwNCiAgInBhdGgiOiAiL3ZpZGVvLzM0a0tYYkxNIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV85OSIsDQogICJhZGQiOiAiMTA0LjE5LjE0MC4xMTUiLA0KICAicG9ydCI6ICIyMDUyIiwNCiAgImlkIjogIjRlZmYzNzkyLTYwNzgtNGFkMS1hYTMxLTc3NzI4MzBjNzhhYyIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiZHdsd2Z5a3JqcDEuenZoZGVhb2YueHl6IiwNCiAgInBhdGgiOiAiL3ZpZGVvL05nZVZiaWIzIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8xMDAiLA0KICAiYWRkIjogIjEwNC4xOS4xMzEuMTEwIiwNCiAgInBvcnQiOiAiMjA1MiIsDQogICJpZCI6ICJjZDJlMGJjNy1iMjVkLTRhOTktYjhkNi1hODA1NzBkYjk5NGEiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogInd0eXd3Y3J6anA1LnlvZm5oa2ZjLnh5eiIsDQogICJwYXRoIjogIi92aWRlby85VGZWRXlrdSIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiDQp9
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8xMDEiLA0KICAiYWRkIjogIjEwNC4xOS4xMzEuMTEwIiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiZGFiODY1NzktZDE5Ny00MzFiLThlNzItM2Q4YTc1OTY4MDQwIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJvQTVGU3o5VGpwMS55b2ZuaGtmYy54eXoiLA0KICAicGF0aCI6ICIvdmlkZW8vUDdFRXhvRTIiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+trojan://4f2f34cc-d2e9-4ca8-a687-68efe5ad5959@20.24.150.227:443?allowInsecure=1&sni=esjs.liangyuandiancloud.com#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_102
+trojan://9737c85e-ad5c-48f5-93f6-9bdb0361d04c@168.138.73.206:40003?allowInsecure=1&sni=frontend.kuangbiaoyun.com#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_103
+trojan://ad953998-e8ea-4d5b-8b2f-e63edd9d375d@168.138.73.206:40005?allowInsecure=1&sni=frontend.kuangbiaoyun.com#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_104
+trojan://ad953998-e8ea-4d5b-8b2f-e63edd9d375d@168.138.73.206:40019?allowInsecure=1&sni=frontend.kuangbiaoyun.com#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_105
+trojan://c75da6ec-2151-4191-bcde-1778a5c12cf7@168.138.73.206:54420?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_106
+trojan://ae3d8af4-4e4f-47a8-a4d7-fda41150d71a@168.138.73.206:54530?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_107
+trojan://c75da6ec-2151-4191-bcde-1778a5c12cf7@168.138.73.206:54540?allowInsecure=1&sni=frontend.yijianlian.app#%f0%9f%87%a8%f0%9f%87%a6_%e5%8a%a0%e6%8b%bf%e5%a4%a7_%40yudievilla_108
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7rwn4e4X+e+juWbvV9AeXVkaWV2aWxsYV8xMDkiLA0KICAiYWRkIjogIjEwNC4xNy4yLjE4MyIsDQogICJwb3J0IjogIjgwIiwNCiAgImlkIjogImYyNTZhM2FlLTBmODUtNGExZC1kMGNkLTJkMGI0YjczZjRmMSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAidjNyYTNkby53YWtldXB0aW1lcmFwLnNob3AiLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiINCn0=
+trojan://44c47535-2d1b-4afa-8c56-6bf39f7b03ad@52.175.33.233:443?allowInsecure=1&sni=hk04.trojanyyds.xyz#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_110
+trojan://96f625d7-f202-46b0-b679-34f8289c6945@207.46.229.187:443?allowInsecure=1&sni=jp.liangyuandiancloud.com#%f0%9f%87%b8%f0%9f%87%ac_%e6%96%b0%e5%8a%a0%e5%9d%a1_%40yudievilla_111
+trojan://61d2b2f6-d6ce-4724-9a5d-cc1123a1c949@20.188.31.125:443?allowInsecure=1&sni=my.mjt001.com#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_112
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@20.222.214.101:443?allowInsecure=1&sni=my02.trojanyyds.xyz#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_113
+trojan://fMucnQTndf@129.213.63.5:443?allowInsecure=1&sni=no.08.ijg.cc#%f0%9f%87%ba%f0%9f%87%b8_%e7%be%8e%e5%9b%bd_%40yudievilla_114
+ss://YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA@221.150.109.14:58023#%f0%9f%87%b0%f0%9f%87%b7_%e9%9f%a9%e5%9b%bd_%40yudievilla_115
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@52.56.124.11:443#%f0%9f%87%ac%f0%9f%87%a7_%e8%8b%b1%e5%9b%bd_%40yudievilla_116
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp1MTdUM0J2cFlhYWl1VzJj@18.171.213.65:443#%f0%9f%87%ac%f0%9f%87%a7_%e8%8b%b1%e5%9b%bd_%40yudievilla_117
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTptcHMzRndtRGpMcldhT1Zn@52.56.124.11:443#%f0%9f%87%ac%f0%9f%87%a7_%e8%8b%b1%e5%9b%bd_%40yudievilla_118
+trojan://d8fd60d7-4c50-47c8-9e2d-adf37ad81af4@23.102.224.60:443?allowInsecure=1&sni=sk01.trojanyyds.xyz#%f0%9f%87%ad%f0%9f%87%b0_%e9%a6%99%e6%b8%af_%40yudievilla_119
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh7vwn4ezX+i2iuWNl19AeXVkaWV2aWxsYV8xMjAiLA0KICAiYWRkIjogIjEwMy4yMzcuODcuMjM5IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiZTIwYzUwMWEtY2NjMC00N2NjLWIzOGEtOTE2ODRmODQyZGQxIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJ2bi54cHJvLjVnZGF0YXZpcC5kaWNodnV0b3AxLnByby52biIsDQogICJwYXRoIjogIi81Z2RhdGF2aXBEVlRvcDEiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==
+trojan://c2c76420-257f-492a-b20f-6560f3bfa78d@20.222.121.197:443?allowInsecure=1&sni=waphk.mjt000.com#%f0%9f%87%af%f0%9f%87%b5_%e6%97%a5%e6%9c%ac_%40yudievilla_121
